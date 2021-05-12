@@ -86,4 +86,7 @@ Temporary Items
 ## Project specific
 **/realm-export-docker.json
 **/.env
-docs/datamodel/~$Vaccine Credential Dataset Proposed.xlsx
+
+node_modules
+bower_components
+build
