@@ -7,7 +7,7 @@ const PORT = process.env.PORT;
 const APP_NAME = process.env.APP_NAME; 
 
 router.get('/', function(req, res, next){
-    res.status(200).send("Apple");
+    res.status(200).send(APP_NAME);
 });
 
 app.use('/', router); 

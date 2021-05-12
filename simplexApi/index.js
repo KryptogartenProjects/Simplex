@@ -5,9 +5,9 @@ require('dotenv').config();
 let router = express.Router(); 
 const PORT = process.env.PORT;
 const APP_NAME = process.env.APP_NAME; 
-
+console.log(PORT);
 router.get('/', function(req, res, next){
-    res.status(200).send("Lemon");
+    res.status(200).send(APP_NAME);
 });
 
 app.use('/api/', router); 
