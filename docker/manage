@@ -241,8 +241,9 @@ configureEnvironment() {
 
   # verifier api 
   export VERIFIER_API_PORT=10000
-  export API_PORT=5060
-  export APP_PORT=5050
+  export APP_PORT=8001
+  export API_PORT=8002
+  
 
 }
 
@@ -370,6 +371,8 @@ case "${COMMAND}" in
     docker-compose logs -f
     ;;
   start|start|up)
+    export APP_PORT=8001
+    export API_PORT=8002
     docker-compose up
     docker-compose logs -f
     ;;

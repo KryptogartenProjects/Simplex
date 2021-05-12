@@ -5,8 +5,10 @@ services:
   # ReactJS APP Verifier 
   simplex-app-dev: 
     image: simplex-application-dev
+    environment: 
+      - APP_PORT:8001
     ports: 
-      - 5050:5050
+      - 8001:8001
     networks: 
       - dts-vc-app
     command: [
@@ -16,9 +18,11 @@ services:
     # ReactJS API Verifier 
   simplex-api-dev: 
     image: simplex-application-api-dev
+    environment:
+      - API_PORT:8002
     ports: 
       #- ${VERIFIER_API_PORT}:${VERIFIER_API_PORT}
-      - 8090:8090
+      - 8002:8002
     networks: 
       - dts-vc-api
     command: [

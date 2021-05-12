@@ -8,4 +8,4 @@ COPY .env /app/.env
 
 RUN npm install
 
-EXPOSE 5060
+EXPOSE 8002
