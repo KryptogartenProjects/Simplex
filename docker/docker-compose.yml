@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+
+  # ReactJS APP Verifier 
+  simplex-app-dev: 
+    image: simplex-application-dev
+    ports: 
+      - 5050:5050
+    networks: 
+      - dts-vc-app
+    command: [
+      "npm", "start"
+    ]
+
+    # ReactJS API Verifier 
+  simplex-api-dev: 
+    image: simplex-application-api-dev
+    ports: 
+      #- ${VERIFIER_API_PORT}:${VERIFIER_API_PORT}
+      - 8090:8090
+    networks: 
+      - dts-vc-api
+    command: [
+      "npm", "start"
+    ]
+
+networks:
+  dts-vc-app:
+  dts-vc-api:
