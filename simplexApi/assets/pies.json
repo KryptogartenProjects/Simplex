@@ -1,0 +1,6 @@
+[
+    {"id": "1", "name": "Apple", "wholePrice": 12.00, "slicePrice": 3.00, "sliceCalories": 80, "imageUrl": "images/apple.jpg"},
+    {"id": "2", "name": "Cinnamon", "wholePrice": 15.00, "slicePrice": 4.00, "sliceCalories": 180, "imageUrl": "images/cinnamon.jpg"},
+    {"id": "3", "name": "Peachy", "wholePrice": 18.00, "slicePrice": 5.50, "sliceCalories": 230, "imageUrl": "images/peachy.jpg"},
+    {"id": "4", "name": "Lemon", "wholePrice": 20.00, "slicePrice": 7.00, "sliceCalories": 380, "imageUrl": "images/lemon.jpg"}
+]
