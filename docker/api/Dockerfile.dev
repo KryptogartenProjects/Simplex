@@ -5,6 +5,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app
 COPY index.js /app/index.js
 COPY .env /app/.env
+COPY assets /app/assets
+copy repos /app/repos
 
 RUN npm install
 
