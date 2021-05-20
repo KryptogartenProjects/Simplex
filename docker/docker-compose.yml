@@ -10,7 +10,7 @@ services:
     ports: 
       - 8001:8001
     networks: 
-      - dts-vc-app
+      - simplex-app
     command: [
       "npm", "start"
     ]
@@ -24,11 +24,11 @@ services:
       #- ${VERIFIER_API_PORT}:${VERIFIER_API_PORT}
       - 8002:8002
     networks: 
-      - dts-vc-api
+      - simplex-app
     command: [
       "npm", "start"
     ]
 
 networks:
-  dts-vc-app:
-  dts-vc-api:
+  simplex-app:
+  
