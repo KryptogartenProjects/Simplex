@@ -7,9 +7,6 @@ require('dotenv').config();
 let router = express.Router(); 
 const PORT = process.env.PORT;
 const APP_NAME = process.env.APP_NAME; 
-console.log(PORT);
-
-let pies = pieRepo.get();
 
 router.get('/', function(req, res, next){
     pieRepo.getj(function(data){
