@@ -1,8 +1,8 @@
 const pieRepo = require('../repos/pieRepo')
 const APP_NAME = process.env.APP_NAME; 
 
-module.exports = async(req, res) => {
-    pieRepo.getj(function(data){
+let getPies = async(req, res) => {
+    pieRepo.get(function(data){
         res.status(200).json({
         "status": 200, 
         "statusText": "OK", 
@@ -13,3 +13,5 @@ module.exports = async(req, res) => {
         next(err);
     });
 }; 
+
+module.exports = getPies;
