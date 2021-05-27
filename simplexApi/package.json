@@ -1,7 +1,7 @@
 {
-  "name": "bethanysapi",
+  "name": "simplexapi",
   "version": "1.0.0",
-  "description": "REST APIs for Bethanys Pie Shop",
+  "description": "REST APIs for Simplex application",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",

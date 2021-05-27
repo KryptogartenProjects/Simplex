@@ -8,19 +8,23 @@ let pieRepo     = require('./repos/pierepo');
 let getPies     = require('./routes/getPies');
 let errorHelper = require('./helpers/errorHelpers');
 const { getById } = require('./repos/pierepo');
-
+let swaggerUi = require('swagger-ui-express'); 
 
 
 // Constants definitions 
-const HOST_NAME = process.env.HOST;
-const PORT      = process.env.PORT;
-const APP_NAME  = process.env.APP_NAME; 
+const HOST_NAME         = process.env.HOST;
+const PORT              = process.env.PORT;
+const APP_NAME          = process.env.APP_NAME; 
+const SWAGGER_DOCUMENT  = process.env.SWAGGER_DOCUMENT;
 
 // Configure middleware to support JSON data parsing in request object
 app.use(express.json()); 
 
 // Configure cors 
 app.use(cors()); 
+
+// Configure swagger doc
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SWAGGER_DOCUMENT)); 
 
 /*router.route('/')
     .get()
