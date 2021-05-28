@@ -2,7 +2,7 @@ let fs = require('fs');
          require('dotenv').config();
 
 // const FILE_NAME = './logs/log.txt'; 
-const FILE_NAME = './logs/log.txt'; 
+const FILE_NAME = process.env.LOG_FILE;
 const breakLn = "\r\n"; 
 
 let logRepo = {

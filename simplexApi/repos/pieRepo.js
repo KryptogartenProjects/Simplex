@@ -3,7 +3,7 @@ let fs  = require('fs');
           require('dotenv').config(); 
 
 //let FILE_NAME =  './assets/pies.json'; 
-let FILE_NAME = process.env.LOG_FILE_NAME; 
+let FILE_NAME = process.env.DATA_FILE; 
 
 let pieRepo = {
 

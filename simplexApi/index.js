@@ -12,11 +12,11 @@ let swaggerUi = require('swagger-ui-express');
 
 
 // Constants definitions 
-const HOST_NAME         = process.env.HOST;
-const PORT              = process.env.PORT;
-const APP_NAME          = process.env.APP_NAME; 
-const SWAGGER_DOCUMENT  = process.env.SWAGGER_DOCUMENT;
-
+const HOST_NAME  = process.env.HOST_NAME;
+const PORT       = process.env.PORT;
+const APP_NAME   = process.env.APP_NAME; 
+const SWAGGER    = process.env.SWAGGER;
+const swaggerDoc = require(SWAGGER);
 // Configure middleware to support JSON data parsing in request object
 app.use(express.json()); 
 
@@ -24,7 +24,8 @@ app.use(express.json());
 app.use(cors()); 
 
 // Configure swagger doc
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SWAGGER_DOCUMENT)); 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc)); 
+
 
 /*router.route('/')
     .get()
@@ -223,4 +224,6 @@ app.use(errorHelper.errorHandler);
 // Create server to linsten on PORT 
 let server = app.listen(PORT, function(){
     console.log(`${APP_NAME} is running on Nodejs server ${HOST_NAME}:${PORT}/api`);
+    console.log(" ");
+    console.log(`The API documentations is running on ${HOST_NAME}:${PORT}/api-docs`);
 });
