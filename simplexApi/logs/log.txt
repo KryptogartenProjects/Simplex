@@ -1,4 +1,0 @@
-********************************************************************************
-DateTime       : 5/27/2021
-Exception info : {"status":500,"statusText":"Internal Server Error","message":"The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined","error":{"code":"INTERNAL_SERVER_ERRROR","message":"The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined"},"requestInfo":{"hostname":"localhost","path":"/api"}}
-********************************************************************************
