@@ -6,13 +6,12 @@
 
 Edit `.env` file and add the variables below. Fill them in with your environment's config values. 
 
-- `HOST`: fully-qualified hostname; 
-- `PORT`: port listening to API requests; 
-- `APP_NAME`: application name, for display purposes;
-- `SWAGGER`: swagger file name;
-- `LOG_FILE`: log file name; 
-- `DATA_FILE`: data repo file name. 
-
+- `APP_NAME`: application name, for display purposes, ex. `"Simplex API provider"`;
+- `HOST_NAME`: fully-qualified hostname, ex. `http://localhost`;
+- `PORT`: port listening to API requests, ex `PORT=8002`;
+- `SWAGGER`: swagger file name, ex `"./swagger.json"`;
+- `LOG_FILE`: log file name, ex `"./logs/log.txt"`;
+- `DATA_FILE`: data repo file name, ex `"./assets/pies.json"`.
 
 Install the node packages by running `npm install`. 
 
