@@ -1,12 +1,12 @@
-const pieRepo = require('../repos/pieRepo')
-const APP_NAME = process.env.APP_NAME; 
+const   pieRepo   = require('../repos/pieRepo');
+const { appName } = require('../helpers/config'); 
 
 let getPies = async(req, res) => {
     pieRepo.get(function(data){
         res.status(200).json({
         "status": 200, 
         "statusText": "OK", 
-        "message": APP_NAME, 
+        "message": appName, 
         "data": data
         });
     }, function(err){

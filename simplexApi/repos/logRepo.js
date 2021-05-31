@@ -1,8 +1,7 @@
 let fs = require('fs'); 
          require('dotenv').config();
 
-// const FILE_NAME = './logs/log.txt'; 
-const FILE_NAME = process.env.LOG_FILE;
+const { logFile } = require('../helpers/config'); 
 const breakLn = "\r\n"; 
 
 let logRepo = {
@@ -13,7 +12,7 @@ let logRepo = {
         toWrite     += "Exception info : " + JSON.stringify(data) + breakLn; 
         toWrite     += "*".repeat(80) + breakLn; 
 
-        fs.writeFile(FILE_NAME, toWrite, function(err){
+        fs.writeFile(logFile, toWrite, function(err){
             if(err){
                 reject(err);
             } else {

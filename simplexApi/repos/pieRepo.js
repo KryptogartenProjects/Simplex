@@ -2,13 +2,12 @@
 let fs  = require('fs'); 
           require('dotenv').config(); 
 
-//let FILE_NAME =  './assets/pies.json'; 
-let FILE_NAME = process.env.DATA_FILE; 
+const { dataFile } = require('../helpers/config'); 
 
 let pieRepo = {
 
     get: function(resolve, reject) {
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err);
             } else {
@@ -18,7 +17,7 @@ let pieRepo = {
     }, 
 
     getById: function(id, resolve, reject){
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err)
             } else {
@@ -29,7 +28,7 @@ let pieRepo = {
     }, 
 
     search: function(searchObject, resolve, reject){
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err); 
             } else {
@@ -47,13 +46,13 @@ let pieRepo = {
     }, 
 
     insert: function(newData, resolve, reject){
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err);
             } else {
                 let pies = JSON.parse(data); 
                 pies.push(newData); 
-                fs.writeFile(FILE_NAME, JSON.stringify(pies), function(err){
+                fs.writeFile(dataFile, JSON.stringify(pies), function(err){
                     if(err){
                         reject(err);
                     } else {
@@ -65,7 +64,7 @@ let pieRepo = {
     }, 
 
     update: function(newData, id, resolve, reject){
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err); 
             } else {
@@ -73,7 +72,7 @@ let pieRepo = {
                 let pie = pies.find(p => p.id == id); 
                 if(pie){
                     Object.assign(pie, newData); 
-                    fs.writeFile(FILE_NAME, JSON.stringify(pies), function(err){
+                    fs.writeFile(dataFile, JSON.stringify(pies), function(err){
                         if(err){
                             reject(err);
                         } else {
@@ -86,7 +85,7 @@ let pieRepo = {
     }, 
 
     delete: function(id, resolve, reject){
-        fs.readFile(FILE_NAME, function(err, data){
+        fs.readFile(dataFile, function(err, data){
             if(err){
                 reject(err);
             } else {
@@ -94,7 +93,7 @@ let pieRepo = {
                 let index = pies.findIndex(p => p.id == id); 
                 if(index != -1){
                     pies.splice(index, 1); 
-                    fs.writeFile(FILE_NAME, JSON.stringify(pies), function(err, data){
+                    fs.writeFile(dataFile, JSON.stringify(pies), function(err, data){
                         if(err){
                             reject(err);
                         } else {
