@@ -1,24 +1,37 @@
 // Bring in the express server and create the application
-let express     = require('express'); 
-let app         = express(); 
-let cors        = require('cors');
-let router      = express.Router(); 
-                require('dotenv').config()  
-let pieRepo     = require('./repos/pierepo');
-let getPies     = require('./routes/getPies');
-let errorHelper = require('./helpers/errorHelpers');
-const { getById } = require('./repos/pierepo');
-let swaggerUi = require('swagger-ui-express'); 
+let express         = require('express'); 
+let cors            = require('cors');
+let ngrok           = require('ngrok');
+let swaggerUi       = require('swagger-ui-express'); 
 
+let pieRepo         = require('./repos/pierepo');
+let getPies         = require('./routes/getPies');
+let errorHelper     = require('./helpers/errorHelpers');
+let { appName, hostname, port, swaggerFile } 
+                    = require('./helpers/config')
 
-// Constants definitions 
-const HOST_NAME  = process.env.HOST_NAME;
-const PORT       = process.env.PORT;
-const APP_NAME   = process.env.APP_NAME; 
-const SWAGGER    = process.env.SWAGGER;
-const swaggerDoc = require(SWAGGER);
+let app             = express(); 
+let router          = express.Router(); 
+                      require('dotenv').config()  
+
+const swaggerDoc    = require(swaggerFile);
+
+// Configure endpoint over ngrok /*
+/*let ngrokEndpoint;
+if(ngrokEndpoint = '' || ngrokEndpoint == undefined){
+    ngrok.connect({
+        proto: "http", 
+        addr: port,
+    }).then(url => {
+        console.log(`* ngrok tunnel opened at: ${url}`); 
+        console.log(`${appName} is running on Nodejs server ${url}/api`);
+        console.log(`The API documentations is running on ${url}/api-docs`);
+        ngrokEndpoint = url; 
+    });
+} */
+
 // Configure middleware to support JSON data parsing in request object
-app.use(express.json()); 
+app.use(express.json());  
 
 // Configure cors 
 app.use(cors()); 
@@ -26,14 +39,12 @@ app.use(cors());
 // Configure swagger doc
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc)); 
 
-
 /*router.route('/')
     .get()
     .post()
     .patch()
     .delete(); 
 */
-
 router.get('/pies', getPies); 
 
 // Create GET to return a list of all pies 
@@ -52,7 +63,6 @@ router.get('/', function(req, res, next){
 
 // Create GET/search?id=n&name=str to search for pies by id and/or name
 router.get('/search', function(req, res, next){
-    //console.log(`id: ${req.query.id} name: ${req.query.name}`);
     console.log(req.query.id); 
     console.log(req.query.name); 
     let searchObject = {
@@ -222,8 +232,7 @@ app.use(errorHelper.errorHandler);
 
 
 // Create server to linsten on PORT 
-let server = app.listen(PORT, function(){
-    console.log(`${APP_NAME} is running on Nodejs server ${HOST_NAME}:${PORT}/api`);
-    console.log(" ");
-    console.log(`The API documentations is running on ${HOST_NAME}:${PORT}/api-docs`);
+let server = app.listen(port, function(){
+    console.log(`${appName} is running on Nodejs server ${hostname}:${port}/api`);
+    console.log(`The API documentations is running on ${hostname}:${port}/api-docs`);
 });
