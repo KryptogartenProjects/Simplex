@@ -1,0 +1,73 @@
+﻿
+ENTIDADES E ELEMENTOS DE DADOS 
+
+E.0 PERSONNE
+Identificateur personne  
+Nom et prenom 
+Adresse 
+Ville 
+Province 
+Code Postal 
+Date de naissance 
+Telephone 
+Email
+
+
+E.1 CLIENT 
+Identificateur client 
+Nom entreprise 
+Adresse 
+Ville 
+Province 
+Code Postal 
+Telephone
+Courriel 
+Nombre d'employes 
+Identificateur Personne responsable 
+
+
+E.2 EMPLOYÉ 
+Identificateur de l'employe 
+Identificateur de personne 
+Identificateur de succursale de Travail 
+Code de type de poste 
+
+
+E.2.1 TYPE DE POSTE 
+Code de type de poste de travail 
+Nom du type de poste de travail 
+
+1 - Président 
+2 - Manager 
+3 - Supperviseur 
+4 - Administratif 
+5 - Vendeur 
+
+
+E.3 SUCCURSALE 
+Identificateur de succursale 
+Nom de la succursale 
+Adresse 
+Ville 
+Province 
+Code Postal /
+
+
+E.4 OUTIL 
+Identificateur d'outil 
+Identificateur de catégorie d'outil 
+
+
+E.4.1 CATEGORIE D'OUTIL 
+Identificateur de categorie d'outil
+Nom de la catégorie d'outil 
+
+
+E.5 LOCATION 
+Identificateur de location  
+Identificateur du client 
+Identificateur de la succursale 
+Identificateur employé responsable 
+Liste d'outils loués 
+
+
